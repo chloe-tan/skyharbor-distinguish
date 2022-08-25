@@ -1,4 +1,4 @@
-const TITLE_SUFFIXES = {
+const TITLE_PREFIXES = {
   DEV: "[DEV]",
   STAGING: "[STG]",
   PROD: ""
@@ -12,10 +12,10 @@ const FAVICON_URLS = {
   PROD: "",
 }
 
-function updateTitleAndFavicon(suffixTitle, faviconUrl) {
+function updateTitleAndFavicon(prefixTitle, faviconUrl) {
   // Update title
-  if (!document.title.startsWith(suffixTitle)) { // Prevent multiple updates
-    document.title = `${suffixTitle} ${document.title}`;
+  if (!document.title.startsWith(prefixTitle)) { // Prevent multiple updates
+    document.title = `${prefixTitle} ${document.title}`;
   }
 
   // Update favicon
@@ -24,27 +24,27 @@ function updateTitleAndFavicon(suffixTitle, faviconUrl) {
 }
 
 async function modifyTab(tab) {
-  // Update suffix title if a dev / stg / prd tab is detected
-  let suffixTitle = "";
+  // Update prefix title if a dev / stg / prd tab is detected
+  let prefixTitle = "";
   let faviconUrl = "";
   if (tab.url.includes("localhost:8889")) {
     // Dev
-    suffixTitle = TITLE_SUFFIXES.DEV;
+    prefixTitle = TITLE_PREFIXES.DEV;
     faviconUrl = FAVICON_URLS.DEV;
   } else if (tab.url.includes("staging.skyharbor.certik.com") || tab.url.includes("certik.vercel.app")) {
     // Staging or Preview
-    suffixTitle = TITLE_SUFFIXES.STAGING;
+    prefixTitle = TITLE_PREFIXES.STAGING;
     faviconUrl = FAVICON_URLS.STAGING;
   } else if (tab.url.includes("skyharbor.certik.com")) {
     // Prod. No changes if its prod :3
   } 
   
-  if (suffixTitle && faviconUrl) {
+  if (prefixTitle && faviconUrl) {
     chrome.scripting.executeScript(
       {
         target: { tabId: tab.id },
         func: updateTitleAndFavicon,
-        args: [suffixTitle, faviconUrl]
+        args: [prefixTitle, faviconUrl]
       },
       (res) => { /* do nothing for now */ }
     );
