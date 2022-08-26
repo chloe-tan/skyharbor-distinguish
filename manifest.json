@@ -1,7 +1,7 @@
 {
   "manifest_version": 3,
   "name": "Skyharbor Distinguish",
-  "version": "1.0",
+  "version": "1.0.1",
   "description": "To quickly distinguish between dev, stg, and prod tabs",
   "icons": {
     "16": "images/icon-16.png",
@@ -18,7 +18,7 @@
     "https://*/"
   ],
   "permissions": [
-    "tabs", "tabGroups", "scripting"
+    "tabs", "storage", "scripting"
   ],
   "background": {
     "service_worker": "background.js"
