@@ -16,5 +16,5 @@ Prod modification (red) enabled via pop-up menu
 
 ## Installation
 
-Extension is currently published on the Chrome Web Store but with Unlisted settings. To install, unlisted installation link [here](https://chrome.google.com/webstore/detail/skyharbor-distinguish/pfopcelfpgcjmmicigbgjhlgmlphgplp/preview?hl=en&authuser=0).
+Extension is currently published on the Chrome Web Store but with Unlisted settings. To install, access the link [here](https://chrome.google.com/webstore/detail/skyharbor-distinguish/pfopcelfpgcjmmicigbgjhlgmlphgplp/preview?hl=en&authuser=0).
 
